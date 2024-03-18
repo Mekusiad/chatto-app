@@ -1,0 +1,61 @@
+.chat .chat-output .chat-output-tasks {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  flex-direction: column-reverse;
+  padding-inline: 3rem;
+
+  overflow: scroll !important;
+}
+
+.chat .chat-output .chat-output-tasks .chat-task {
+  display: flex;
+  position: relative;
+  flex-direction: row-reverse;
+
+  align-items: center;
+  height: 8%;
+
+  border-radius: 0.4rem;
+}
+
+.chat .chat-output .chat-output-tasks .chat-task.to {
+  flex-direction: row;
+}
+
+.chat .chat-output .chat-output-tasks .chat-task img {
+  display: block;
+  height: 80%;
+  object-fit: contain;
+  color: #eee;
+  margin-inline: 1rem;
+}
+
+.chat .chat-output .chat-output-tasks .chat-task .task-container {
+  display: flex;
+  flex-direction: row;
+  height: 80%;
+  gap: 0.5rem;
+  text-align: left;
+  word-wrap: break-word;
+  word-break: break-all;
+
+  background-color: rgba(255, 255, 255, 0.9);
+
+  padding: 0.5rem;
+
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.chat .chat-output .chat-output-tasks .chat-task.to .task-container {
+  border-bottom-left-radius: 0rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.chat .chat-output .chat-output-tasks .chat-task .task-container p {
+  font-size: 65%;
+  color: #111;
+  padding-top: 1rem;
+}

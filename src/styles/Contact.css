@@ -1,0 +1,27 @@
+.home .container-left .contacts .contact-user {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  height: 10%;
+  gap: 2rem;
+  text-transform: capitalize;
+  padding-inline: 1rem;
+  color: #eee;
+}
+
+.home .container-left .contacts .contact-user:hover {
+  cursor: pointer;
+  background-color: rgba(0, 255, 255, 0.2);
+}
+
+.home .container-left .contacts .contact-user img {
+  display: block;
+  height: 60%;
+  object-fit: contain;
+  color: #eee;
+}
+
+.selected {
+  background-color: rgba(0, 255, 255, 0.2);
+}

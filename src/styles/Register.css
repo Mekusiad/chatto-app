@@ -1,0 +1,80 @@
+.register {
+  height: 100vh;
+  width: 100%;
+
+  display: grid;
+  place-items: center;
+  color: #eee;
+}
+
+.register h1 {
+  margin: 1rem 0;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+}
+
+.register form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  gap: 2rem;
+
+  max-height: 550px;
+  height: 100%;
+  width: 380px;
+
+  background-color: rgba(0, 0, 0, 0.6);
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+
+  backdrop-filter: blur(4px);
+}
+
+.register form div label {
+  display: block;
+  text-align: left;
+}
+
+.register form div input {
+  width: 100%;
+  height: 2rem;
+  outline: none;
+  border: 1px solid transparent;
+  background-color: rgba(255, 255, 255, 0.2);
+
+  padding-inline: 0.5rem;
+
+  border-radius: 0.2rem;
+}
+
+.register form div input:focus {
+  border: 1px solid black;
+}
+
+.register form button {
+  height: 2rem;
+  width: 100%;
+  outline: none;
+  border: 1px solid transparent;
+  background-color: #67539f;
+  font-weight: bold;
+  border-radius: 0.2rem;
+
+  text-align: center;
+}
+
+.register button:hover {
+  cursor: pointer;
+  transform: scale(1.01);
+}
+
+.register form button div,
+.register p {
+  margin: 0 auto;
+}
+
+.register p a {
+  color: #eee;
+  font-weight: bold;
+  text-decoration: none;
+}
