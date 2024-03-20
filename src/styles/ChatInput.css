@@ -12,3 +12,17 @@
   border: 0;
   border-radius: 0.4rem;
 }
+
+form.chat-input button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100%;
+  border: 2px solid transparent;
+  border-radius: 0.2rem;
+}
+
+form.chat-input button:hover {
+  cursor: pointer;
+  background-color: rgba(238, 238, 238, 0.9);
+}

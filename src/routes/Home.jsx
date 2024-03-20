@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { getUserProfile, getContacts } from "../utils/APIRoute.js";
 
 import axios from "axios";
+import Button from "../components/Button.jsx";
 
 import "../styles/Home.css";
 import Contact from "../components/Contact.jsx";
@@ -60,15 +61,18 @@ const Login = () => {
     getProfile();
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem("user-chattoApp");
-    navigate("/");
-  };
+  useEffect(() => {
+    const loadingContact = () => {
+      getContactsUser(userProfile._id);
+    };
+    loadingContact();
+  }, [contacts]);
 
   return (
     <div className="home">
       <div className="container-left">
         <div className="container-profile">
+          <Button />
           <img src={userProfile.avatarImage} alt="profile-avatar" />
           <p>{userProfile.username}</p>
         </div>
@@ -83,7 +87,6 @@ const Login = () => {
             />
           ))}
         </div>
-        <button onClick={() => handleLogout()}>Logout</button>
       </div>
       {selectedChatUser === undefined ? (
         ""

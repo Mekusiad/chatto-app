@@ -16,32 +16,8 @@ const ChatTask = ({ selectedChatUser, userProfile, loadingMessage }) => {
 
     if (!data.status) console.log(data.message);
 
-    // console.log(data.chat[0].createdAt);
-    // const today = new Date(data.chat[0].createdAt);
-    // console.log(today.toLocaleTimeString());
     setMessages(data.chat);
   };
-
-  useEffect(() => {
-    const getMessages = () => {
-      getChatMessages();
-    };
-    getMessages();
-  }, []);
-
-  // useEffect(() => {
-  //   const getMessages = () => {
-  //     getChatMessages();
-  //   };
-  //   getMessages();
-  // }, [selectedChatUser._id]);
-
-  useEffect(() => {
-    const getMessages = () => {
-      getChatMessages();
-    };
-    getMessages();
-  }, [loadingMessage]);
 
   useEffect(() => {
     const getMessages = () => {
@@ -72,7 +48,10 @@ const ChatTask = ({ selectedChatUser, userProfile, loadingMessage }) => {
           <div className="task-container">
             <div className="task">{box.message.text}</div>
             <p className="task-time">
-              {new Date(box.createdAt).toLocaleTimeString()}
+              {new Date(box.createdAt).toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
             </p>
           </div>
         </div>

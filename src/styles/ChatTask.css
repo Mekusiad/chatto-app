@@ -1,8 +1,9 @@
 .chat .chat-output .chat-output-tasks {
   display: flex;
   gap: 0.5rem;
-  width: 100%;
+
   flex-direction: column-reverse;
+
   padding-inline: 3rem;
 
   overflow: scroll !important;
@@ -10,11 +11,10 @@
 
 .chat .chat-output .chat-output-tasks .chat-task {
   display: flex;
-  position: relative;
+
   flex-direction: row-reverse;
 
   align-items: center;
-  height: 8%;
 
   border-radius: 0.4rem;
 }
@@ -24,8 +24,8 @@
 }
 
 .chat .chat-output .chat-output-tasks .chat-task img {
-  display: block;
-  height: 80%;
+  display: none;
+  width: 1%;
   object-fit: contain;
   color: #eee;
   margin-inline: 1rem;
@@ -34,11 +34,9 @@
 .chat .chat-output .chat-output-tasks .chat-task .task-container {
   display: flex;
   flex-direction: row;
-  height: 80%;
+  align-items: center;
   gap: 0.5rem;
   text-align: left;
-  word-wrap: break-word;
-  word-break: break-all;
 
   background-color: rgba(255, 255, 255, 0.9);
 
@@ -54,8 +52,14 @@
   border-bottom-right-radius: 0.5rem;
 }
 
+div.task {
+  word-wrap: break-word;
+  word-break: break-all;
+  font-size: 90%;
+}
+
 .chat .chat-output .chat-output-tasks .chat-task .task-container p {
-  font-size: 65%;
+  font-size: 60%;
   color: #111;
   padding-top: 1rem;
 }

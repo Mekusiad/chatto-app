@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { addTask } from "../utils/APIRoute.js";
+
+import { BiSend } from "react-icons/bi";
 import axios from "axios";
 
 import "../styles/ChatInput.css";
@@ -51,7 +53,9 @@ const ChatInput = ({
         value={currentTask}
         onChange={(e) => setCurrentTask(e.target.value)}
       />
-      <button>Send</button>
+      <button>
+        <BiSend />
+      </button>
     </form>
   );
 };

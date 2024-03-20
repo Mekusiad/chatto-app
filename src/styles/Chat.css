@@ -1,6 +1,6 @@
 .chat {
-  height: 20%;
-  max-height: 100vh;
+  height: 100%;
+  max-height: 900px;
   display: grid;
   grid-template-rows: 91% 9%;
   background-color: rgba(0, 2, 22, 0.4);
@@ -8,13 +8,13 @@
 
 .chat .chat-output {
   display: grid;
+  position: relative;
   grid-template-rows: 10% 90%;
   padding: 1rem;
 }
 
 /* Start container output profile */
 .chat .chat-output .chat-output-profile {
-  /* background-color: rgba(0, 0, 0, 0.2); */
   border-top-left-radius: 0.4rem;
   border-top-right-radius: 0.4rem;
 
@@ -24,6 +24,8 @@
   padding-inline: 1rem;
   gap: 2rem;
   color: #eee;
+
+  box-shadow: 0px 5px 5px 5px rgba(255, 255, 255, 1);
 }
 
 .chat .chat-output .chat-output-profile img {
@@ -36,29 +38,3 @@
   text-transform: capitalize;
 }
 /* End container output profile */
-
-/* Start container chat task */
-
-/* End container chat task */
-
-/* ===== Scrollbar CSS ===== */
-/* Firefox */
-* {
-  scrollbar-width: none;
-  scrollbar-color: #dbcedf #ffffff;
-}
-
-/* Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 16px;
-}
-
-*::-webkit-scrollbar-track {
-  background: #ffffff;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #dbcedf;
-  border-radius: 10px;
-  border: 3px solid #ffffff;
-}

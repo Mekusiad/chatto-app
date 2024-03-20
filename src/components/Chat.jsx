@@ -4,6 +4,7 @@ import ChatTask from "./ChatTask";
 import "../styles/Chat.css";
 
 import { useState } from "react";
+
 const Chat = ({ userProfile, selectedChatUser }) => {
   const [loadingMessage, setLoadingMessage] = useState(false);
   return (
