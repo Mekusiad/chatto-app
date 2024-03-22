@@ -6,13 +6,12 @@ const Button = ({ children }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    console.log(children);
-    // if (children.type.name && children.type.name === "BiPowerOff") {
-    //   localStorage.removeItem("user-chattoApp");
-    //   navigate("/");
-    // } else if (children === "Home") {
-    //   navigate("/home");
-    // }
+    if (children === "Home") {
+      navigate("/home");
+    } else {
+      localStorage.removeItem("user-chattoApp");
+      navigate("/");
+    }
   };
 
   return (
