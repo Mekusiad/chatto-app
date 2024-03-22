@@ -1,0 +1,51 @@
+.container-left {
+  display: grid;
+
+  max-height: 900px;
+  grid-template-rows: 20% 80%;
+
+  border-top-left-radius: 0.2rem;
+  border-bottom-left-radius: 0.2rem;
+}
+
+.container-left .container-profile {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 1rem;
+  color: #eee;
+  border-bottom: 5px solid rgba(0, 255, 255, 0.2);
+}
+
+/* Start contacts profile */
+
+.container-left .container-profile img {
+  display: block;
+  width: 50%;
+  object-fit: contain;
+  color: #eee;
+}
+
+.container-left .container-profile p {
+  text-transform: capitalize;
+}
+
+.container-left .contacts {
+  display: flex;
+  height: 100%;
+  width: auto;
+  flex-direction: column;
+  justify-content: left;
+  overflow: auto;
+}
+
+.container-left .container-profile button.button {
+  height: 2rem;
+  width: 2rem;
+  top: 0;
+  right: 0;
+  background-color: rgba(22, 90, 79, 1);
+  color: #eee;
+}
