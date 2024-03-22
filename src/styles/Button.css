@@ -1,11 +1,5 @@
 .button {
   position: absolute;
-  top: 0%;
-  right: 0%;
-  /* transform: translate(0, -10%); */
-  right: 0;
-  height: 2rem;
-  width: 2rem;
   font-weight: bold;
   font-size: 100%;
   background-color: #eee;

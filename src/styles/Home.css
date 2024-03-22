@@ -1,6 +1,8 @@
 .home {
   height: 900px;
   width: 1200px;
+  min-width: 100vw;
+  min-height: 100vh;
 
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 0.3rem;
@@ -8,48 +10,3 @@
   display: grid;
   grid-template-columns: 20% 80%;
 }
-
-.home .container-left {
-  display: grid;
-
-  max-height: 900px;
-  grid-template-rows: 20% 80%;
-
-  border-top-left-radius: 0.2rem;
-  border-bottom-left-radius: 0.2rem;
-}
-
-.home .container-left .container-profile {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  margin-top: 1rem;
-  color: #eee;
-  border-bottom: 5px solid rgba(0, 255, 255, 0.2);
-}
-
-/* Start contacts profile */
-
-.home .container-left .container-profile img {
-  display: block;
-  width: 50%;
-  object-fit: contain;
-  color: #eee;
-}
-
-.home .container-left .container-profile p {
-  text-transform: capitalize;
-}
-
-.home .container-left .contacts {
-  display: flex;
-  height: 100%;
-  width: auto;
-  flex-direction: column;
-  justify-content: left;
-  overflow: auto;
-}
-
-/* Container right */

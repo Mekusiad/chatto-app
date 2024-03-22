@@ -8,11 +8,12 @@
 }
 
 .login h1 {
-  color: #eee;
+  color: #165a4f;
 
   margin: 1rem 0;
   letter-spacing: 0.5rem;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .login form {
@@ -58,7 +59,7 @@
   width: 100%;
   outline: none;
   border: 1px solid transparent;
-  background-color: #67539f;
+  background-color: #165a4f;
   border-radius: 0.2rem;
   font-weight: bold;
   text-align: center;
@@ -75,7 +76,7 @@
 }
 
 .login form p a {
-  color: #eee;
+  color: #165a4f;
   text-decoration: none;
   font-weight: bold;
 }

@@ -12,7 +12,7 @@ const ChatInput = ({
   loadingMessage,
   setLoadingMessage,
 }) => {
-  const [currentTask, setCurrentTask] = useState(undefined);
+  const [currentTask, setCurrentTask] = useState("");
   const idFrom = userProfile._id;
   const idTo = selectedChatUser._id;
 
@@ -35,9 +35,6 @@ const ChatInput = ({
     if (data.status) {
       setCurrentTask("");
       setLoadingMessage(!loadingMessage);
-      console.log(loadingMessage);
-
-      console.log(data.message);
     }
   };
 

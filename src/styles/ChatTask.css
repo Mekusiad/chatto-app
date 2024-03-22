@@ -1,5 +1,6 @@
 .chat .chat-output .chat-output-tasks {
   display: flex;
+
   gap: 0.5rem;
 
   flex-direction: column-reverse;
@@ -11,7 +12,7 @@
 
 .chat .chat-output .chat-output-tasks .chat-task {
   display: flex;
-
+  max-width: 100%;
   flex-direction: row-reverse;
 
   align-items: center;

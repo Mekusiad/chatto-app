@@ -4,22 +4,27 @@ import { useNavigate } from "react-router-dom";
 import { getUserProfile, getContacts } from "../utils/APIRoute.js";
 
 import axios from "axios";
-import Button from "../components/Button.jsx";
 
 import "../styles/Home.css";
-import Contact from "../components/Contact.jsx";
+
+import { ToastContainer, toast } from "react-toastify";
+
 import Chat from "../components/Chat.jsx";
+import ContainerProfile from "../components/ContainerProfile.jsx";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [selectContact, setSelectContact] = useState(false);
+  // const [selectContact, setSelectContact] = useState(false);
   const [selectedChatUser, setSelectedChatUser] = useState(undefined);
   const [userProfile, setUserProfile] = useState({});
   const [contacts, setContacts] = useState([]);
 
-  const handleSelected = (index, userSelectTask) => {
-    setSelectContact(index);
-    setSelectedChatUser(userSelectTask);
+  const toastOptions = {
+    position: "bottom-right",
+    autoClose: 8000,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "dark",
   };
 
   const getUser = async (userId) => {
@@ -31,14 +36,13 @@ const Login = () => {
         setUserProfile(data.user);
       }
     } catch (error) {
-      console.error(error);
+      toast.error(error.message, toastOptions);
     }
   };
 
   const getContactsUser = async (userId) => {
     try {
       const result = await axios.get(`${getContacts}/${userId}`);
-
       if (result.status) {
         const { data } = result;
         setContacts(data.users);
@@ -50,13 +54,11 @@ const Login = () => {
 
   useEffect(() => {
     const userId = JSON.parse(localStorage.getItem("user-chattoApp"));
-    console.log(userId);
 
     if (!userId) navigate("/");
 
     const getProfile = () => {
       getUser(userId);
-      getContactsUser(userId);
     };
     getProfile();
   }, []);
@@ -70,29 +72,18 @@ const Login = () => {
 
   return (
     <div className="home">
-      <div className="container-left">
-        <div className="container-profile">
-          <Button />
-          <img src={userProfile.avatarImage} alt="profile-avatar" />
-          <p>{userProfile.username}</p>
-        </div>
-        <div className="contacts">
-          {contacts.map((user, index) => (
-            <Contact
-              key={index}
-              user={user}
-              index={index}
-              selectContact={selectContact}
-              handleSelected={handleSelected}
-            />
-          ))}
-        </div>
-      </div>
+      <ContainerProfile
+        userProfile={userProfile}
+        contacts={contacts}
+        setSelectedChatUser={setSelectedChatUser}
+      />
+
       {selectedChatUser === undefined ? (
         ""
       ) : (
         <Chat userProfile={userProfile} selectedChatUser={selectedChatUser} />
       )}
+      <ToastContainer />
     </div>
   );
 };
