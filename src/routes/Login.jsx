@@ -21,7 +21,9 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (localStorage.getItem("user-chattoApp")) navigate("/home");
+    if (localStorage.getItem("user-chattoApp")) {
+      navigate("/home");
+    }
   }, []);
 
   const validateForm = () => {
@@ -55,7 +57,6 @@ const Login = () => {
       setLoading(true);
       try {
         const { data } = await axios.post(loginRoute, { username, password });
-
         if (data.status) {
           localStorage.setItem("user-chattoApp", JSON.stringify(data.id));
           alert(data.message);

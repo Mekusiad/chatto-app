@@ -3,10 +3,12 @@ import axios from "axios";
 import { getAllMessages } from "../utils/APIRoute";
 
 import "../styles/ChatTask.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { socket } from "../utils/socket";
 
-const ChatTask = ({ selectedChatUser, userProfile, loadingMessage }) => {
-  const [messages, setMessages] = useState([]);
+const ChatTask = ({ selectedChatUser, userProfile, messages, setMessages }) => {
+  const [arrivalMessage, setArrivalMessage] = useState(null);
+  const scrollRef = useRef();
 
   const getChatMessages = async () => {
     const idFrom = userProfile._id;
@@ -20,31 +22,36 @@ const ChatTask = ({ selectedChatUser, userProfile, loadingMessage }) => {
   };
 
   useEffect(() => {
+    arrivalMessage && setMessages((prev) => [...prev, arrivalMessage]);
+  }, [arrivalMessage]);
+
+  useEffect(() => {
+    if (selectedChatUser) {
+      socket.on("receive-message", (receiveMessage) => {
+        setArrivalMessage(receiveMessage);
+      });
+    }
+  }, []);
+
+  useEffect(() => {
     const getMessages = () => {
       getChatMessages();
     };
     getMessages();
+  }, [selectedChatUser]);
+
+  useEffect(() => {
+    scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   return (
     <div className="chat-output-tasks">
       {messages.map((box, index) => (
         <div
+          ref={scrollRef}
           key={index}
           className={`chat-task ${box.sender === userProfile._id ? "" : "to"}`}
         >
-          <img
-            src={
-              box.sender === userProfile._id
-                ? userProfile.avatarImage
-                : selectedChatUser.avatarImage
-            }
-            alt={
-              box.sender === userProfile._id
-                ? userProfile.username
-                : selectedChatUser.username
-            }
-          />
           <div className="task-container">
             <div className="task">{box.message.text}</div>
             <p className="task-time">
@@ -56,20 +63,6 @@ const ChatTask = ({ selectedChatUser, userProfile, loadingMessage }) => {
           </div>
         </div>
       ))}
-      {/* Aqui começa a */}
-      {/* <div className="chat-task main">
-        <img src={userTaskChat.avatarImage} alt={`${userTaskChat.username}`} />
-        <p></p>
-      </div>
-      <div className="chat-task receive">
-        <img src={userTaskChat.avatarImage} alt={`${userTaskChat.username}`} />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde tempora
-          mollitia exercitationem similique dicta, fugiat molestias nostrum
-          voluptatem blanditiis! Dolor!
-        </p>
-      </div> */}
-      {/* Aqui termina*/}
     </div>
   );
 };

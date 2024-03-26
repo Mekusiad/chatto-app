@@ -2,15 +2,19 @@ import { useNavigate } from "react-router-dom";
 
 import "../styles/Button.css";
 
-const Button = ({ children }) => {
+const Button = ({ children, userProfile }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
     if (children === "Home") {
       navigate("/home");
     } else {
-      localStorage.removeItem("user-chattoApp");
-      navigate("/");
+      if (localStorage.getItem("user-chattoApp")) {
+        // socket.emit("logout", userProfile._id);
+        localStorage.removeItem("user-chattoApp");
+
+        navigate("/");
+      }
     }
   };
 

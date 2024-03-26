@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-import { getUserProfile, getContacts } from "../utils/APIRoute.js";
-
+import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 
+import { getUserProfile, getContacts } from "../utils/APIRoute.js";
+import { socket } from "../utils/socket.js";
 import "../styles/Home.css";
-
-import { ToastContainer, toast } from "react-toastify";
 
 import Chat from "../components/Chat.jsx";
 import ContainerProfile from "../components/ContainerProfile.jsx";
@@ -54,8 +52,9 @@ const Login = () => {
 
   useEffect(() => {
     const userId = JSON.parse(localStorage.getItem("user-chattoApp"));
-
     if (!userId) navigate("/");
+
+    socket.emit("add-user", userId);
 
     const getProfile = () => {
       getUser(userId);

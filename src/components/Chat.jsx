@@ -7,6 +7,7 @@ import { useState } from "react";
 
 const Chat = ({ userProfile, selectedChatUser }) => {
   const [loadingMessage, setLoadingMessage] = useState(false);
+  const [messages, setMessages] = useState([]);
   return (
     <div className="chat">
       <div className="chat-output">
@@ -22,6 +23,8 @@ const Chat = ({ userProfile, selectedChatUser }) => {
           selectedChatUser={selectedChatUser}
           userProfile={userProfile}
           loadingMessage={loadingMessage}
+          messages={messages}
+          setMessages={setMessages}
         />
       </div>
       <ChatInput
@@ -29,6 +32,8 @@ const Chat = ({ userProfile, selectedChatUser }) => {
         userProfile={userProfile}
         loadingMessage={loadingMessage}
         setLoadingMessage={setLoadingMessage}
+        messages={messages}
+        setMessages={setMessages}
       />
     </div>
   );

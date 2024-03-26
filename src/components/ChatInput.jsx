@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { addTask } from "../utils/APIRoute.js";
+import { socket } from "../utils/socket.js";
 
 import { BiSend } from "react-icons/bi";
 import axios from "axios";
@@ -11,6 +12,8 @@ const ChatInput = ({
   selectedChatUser = undefined,
   loadingMessage,
   setLoadingMessage,
+  messages,
+  setMessages,
 }) => {
   const [currentTask, setCurrentTask] = useState("");
   const idFrom = userProfile._id;
@@ -26,7 +29,22 @@ const ChatInput = ({
       message: currentTask,
       from: idFrom,
       to: idTo,
+      createdAt: new Date(),
     });
+
+    const sendMessage = {
+      fromSelf: true,
+      message: { text: currentTask },
+      from: idFrom,
+      to: idTo,
+      sender: idFrom,
+      createdAt: new Date(),
+    };
+    socket.emit("send-message", sendMessage);
+
+    const mgs = [...messages];
+    mgs.push(sendMessage);
+    setMessages(mgs);
 
     if (!data.status) {
       console.log("Failed to send a message: ", data.message);

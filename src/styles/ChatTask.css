@@ -3,11 +3,10 @@
 
   gap: 0.5rem;
 
-  flex-direction: column-reverse;
+  flex-direction: column;
+  padding: 2rem 3rem;
 
-  padding-inline: 3rem;
-
-  overflow: scroll !important;
+  overflow: auto;
 }
 
 .chat .chat-output .chat-output-tasks .chat-task {
@@ -22,14 +21,6 @@
 
 .chat .chat-output .chat-output-tasks .chat-task.to {
   flex-direction: row;
-}
-
-.chat .chat-output .chat-output-tasks .chat-task img {
-  display: none;
-  width: 1%;
-  object-fit: contain;
-  color: #eee;
-  margin-inline: 1rem;
 }
 
 .chat .chat-output .chat-output-tasks .chat-task .task-container {

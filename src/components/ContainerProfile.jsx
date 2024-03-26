@@ -16,7 +16,7 @@ const ContainerProfile = ({ userProfile, contacts, setSelectedChatUser }) => {
   return (
     <div className="container-left">
       <div className="container-profile">
-        <Button>
+        <Button userProfile={userProfile}>
           <BiPowerOff />
         </Button>
         <img src={userProfile.avatarImage} alt="profile-avatar" />
